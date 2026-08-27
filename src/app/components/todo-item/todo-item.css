@@ -5,7 +5,15 @@
   padding: 15px 20px;
   border: 1px solid #eee;
   border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.todo-done {
+  text-decoration: line-through;
+}
+
+.todo-undone {
+  text-decoration: none;
 }
 
 .actions {
@@ -21,10 +29,23 @@
   color: white;
 }
 
+button.done,
+button.undone {
+  width: 100px;
+}
+
 .edit {
   background-color: #0d9488;
 }
 
 .delete {
+  background-color: #dc2626;
+}
+
+.done {
+  background-color: rgb(10, 152, 10);
+}
+
+.undone {
   background-color: #dc2626;
 }

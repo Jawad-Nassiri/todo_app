@@ -1,6 +1,7 @@
 <header>
   <h1>Todo App</h1>
 </header>
+
 <section class="welcome">
   <h2>Welcome!</h2>
   <p>To get started, add some items to your list:</p>
@@ -9,13 +10,19 @@
     <button (click)="addTodo()">add</button>
   </div>
 </section>
+
 <div class="tabs">
   <button class="tab active">undone <span class="badge">9</span></button>
   <button class="tab">done <span class="badge done">9</span></button>
 </div>
 
 <div class="todo-list">
+  <!-- todos  -->
   @for (todo of todos; track todo.id) {
-    <todo-item [todo]="todo"></todo-item>
+    <todo-item 
+    [todo]="todo" 
+    (toggle)="toggleTodo($event)" 
+    (delete)="deleteTodo($event)">
+    </todo-item>
   }
 </div>

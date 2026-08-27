@@ -19,4 +19,14 @@ export class TodoList {
     this.todos.push({ id: Date.now(), text: this.newTodo, completed: false });
     this.newTodo = '';
   }
+
+  toggleTodo(id: number) {
+    const todo = this.todos.find((t) => t.id === id);
+    if (todo) todo.completed = !todo.completed;
+    console.log(this.todos);
+  }
+
+  deleteTodo(id: number) {
+    this.todos = this.todos.filter((t) => t.id !== id);
+  }
 }

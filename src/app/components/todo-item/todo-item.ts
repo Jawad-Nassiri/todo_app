@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter, output } from '@angular/core';
 
 @Component({
   selector: 'todo-item',
@@ -8,4 +8,15 @@ import { Component, Input } from '@angular/core';
 })
 export class TodoItem {
   @Input() todo!: { id: number; text: string; completed: boolean };
+  @Output() toggle = new EventEmitter<number>();
+  @Output() delete = new EventEmitter<number>();
+
+  onToggle() {
+    this.toggle.emit(this.todo.id);
+  }
+
+  deleteTodo() {
+    this.delete.emit(this.todo.id);
+  }
+
 }

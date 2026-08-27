@@ -1,9 +1,18 @@
 <div class="todo-item">
-  <span>
+  <span [class]="todo.completed ? 'todo-done' : 'todo-undone'">
     {{ todo.text }}
   </span>
   <div class="actions">
     <button class="edit">edit</button>
-    <button class="delete">delete</button>
+    <button class="delete" (click)="deleteTodo()">delete</button>
+    <button 
+  [class]="todo.completed ? 'done' : 'undone'" 
+  (click)="onToggle()">
+  @if (todo.completed) {
+    Done ✅
+  } @else {
+    Undone ❌
+  }
+</button>
   </div>
 </div>

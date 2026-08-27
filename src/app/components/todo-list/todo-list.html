@@ -5,8 +5,8 @@
   <h2>Welcome!</h2>
   <p>To get started, add some items to your list:</p>
   <div class="add-todo">
-    <input type="text" placeholder="i want to do ...">
-    <button>add</button>
+    <input type="text" placeholder="i want to do ..." [(ngModel)]="newTodo" />
+    <button (click)="addTodo()">add</button>
   </div>
 </section>
 <div class="tabs">
@@ -15,6 +15,7 @@
 </div>
 
 <div class="todo-list">
-  <todo-item></todo-item>
-  <todo-item></todo-item>
+  @for (todo of todos; track todo.id) {
+    <todo-item [todo]="todo"></todo-item>
+  }
 </div>

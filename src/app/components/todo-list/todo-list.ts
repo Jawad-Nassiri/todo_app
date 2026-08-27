@@ -20,13 +20,28 @@ export class TodoList {
     this.newTodo = '';
   }
 
+  get undoneCount() {
+  return this.todos.filter(t => !t.completed).length;
+}
+
+get doneCount() {
+  return this.todos.filter(t => t.completed).length;
+}
+
   toggleTodo(id: number) {
     const todo = this.todos.find((t) => t.id === id);
     if (todo) todo.completed = !todo.completed;
-    console.log(this.todos);
   }
 
   deleteTodo(id: number) {
     this.todos = this.todos.filter((t) => t.id !== id);
+  }
+
+  editTodo(event: { id: number; text: string }) {
+    const todo = this.todos.find((t) => t.id === event.id);
+
+    if (todo) {
+      todo.text = event.text;
+    }
   }
 }

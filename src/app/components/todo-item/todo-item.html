@@ -3,7 +3,11 @@
     {{ todo.text }}
   </span>
   <div class="actions">
-    <button class="edit">edit</button>
+    @if(isEditing) {
+      <input type="text" [(ngModel)]="editText">
+      <button [style]="'color: white; background: green'" (click)="editTodo()">Save Change</button>
+    }
+    <button class="edit" (click)="isEditing=true; editText=todo.text;">edit</button>
     <button class="delete" (click)="deleteTodo()">delete</button>
     <button 
   [class]="todo.completed ? 'done' : 'undone'" 
